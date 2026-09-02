@@ -53,7 +53,7 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
+      <section className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
         <h3 className="text-xl font-semibold text-gray-950">Welcome back!</h3>
         <p className="text-xs text-slate-700 mt-1.25 mb-6">
           Enter details to log in
@@ -88,7 +88,7 @@ const Login = () => {
             </Link>
           </p>
         </form>
-      </div>
+      </section>
     </AuthLayout>
   );
 };

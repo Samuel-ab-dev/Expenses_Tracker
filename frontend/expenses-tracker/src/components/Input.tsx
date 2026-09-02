@@ -5,19 +5,15 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   error?: string;
+  showPasswordToggle?: boolean;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, ...props }, ref) => {
+  ({ label, error, showPasswordToggle = true, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     const isPasswordType = props.type === "password";
 
-    const inputType =
-      isPasswordType && showPassword
-        ? showPassword
-          ? "text"
-          : "password"
-        : props.type;
+    const inputType = isPasswordType && showPassword ? "text" : props.type;
 
     return (
       <div className="mb-4">
@@ -33,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             type={inputType}
             className="w-full bg-transparent outline-none"
           />
-          {isPasswordType && (
+          {isPasswordType && showPasswordToggle && (
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}

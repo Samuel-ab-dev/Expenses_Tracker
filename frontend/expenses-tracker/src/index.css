@@ -62,7 +62,7 @@
 }
 
 .error {
-  @apply text-red-500 text-xs mt-1;
+  @apply text-red-500 text-xs md:mt-1;
 }
 
 .btn-primary {
