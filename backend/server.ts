@@ -4,6 +4,10 @@ import connectDB from "./configs/db.ts";
 import authRoutes from "./routes/authRoutes.ts";
 import { ErrorHandler } from "./utils/errorHandler.ts";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 

@@ -10,7 +10,7 @@ const fileFilter = (
   file: Express.Multer.File,
   cb: FileFilterCallback,
 ) => {
-  const allowedTypes = ["/image.jpeg", "/image.png", "/image.svg+xml"];
+  const allowedTypes = ["image/jpeg", "image/png", "image/svg+xml"];
 
   const allowedExtensions = [".jpeg", ".jpg", ".png", ".svg"];
 
