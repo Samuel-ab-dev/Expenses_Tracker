@@ -1,18 +1,22 @@
 import type { Request } from "express";
 import multer, { type FileFilterCallback } from "multer";
 import path from "node:path";
-import crypto from "node:crypto";
 
 const storage = multer.memoryStorage();
 
 const fileFilter = (
-  req: Request,
+  _req: Request,
   file: Express.Multer.File,
   cb: FileFilterCallback,
 ) => {
-  const allowedTypes = ["image/jpeg", "image/png", "image/svg+xml"];
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/svg+xml",
+    "image/wepb",
+  ];
 
-  const allowedExtensions = [".jpeg", ".jpg", ".png", ".svg"];
+  const allowedExtensions = [".jpeg", ".jpg", ".png", ".svg", ".wepb"];
 
   const extension = path.extname(file.originalname).toLowerCase();
 
@@ -31,7 +35,7 @@ export const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 2 * 1024 * 1024,
+    fileSize: 5 * 1024 * 1024,
     files: 1,
   },
 });

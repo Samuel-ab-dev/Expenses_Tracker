@@ -8,6 +8,7 @@ interface IUser {
   profileImageUrl: string | null;
   createdAt: Date;
   updatedAt: Date;
+  locale: "en-US" | "pt-BR" | "ja-JP";
 }
 
 interface IUserMethods {
@@ -22,6 +23,12 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
     email: { type: String, required: true, unique: true },
     passwordHash: { type: String, required: true, select: false },
     profileImageUrl: { type: String, default: null },
+    locale: {
+      type: String,
+      enum: ["en-US", "pt-BR"],
+      default: "en-US",
+      required: true,
+    },
   },
   { timestamps: true },
 );

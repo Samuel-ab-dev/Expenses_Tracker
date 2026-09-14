@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./configs/db.ts";
 import authRoutes from "./routes/authRoutes.ts";
+import incomeRoutes from "./routes/incomeRoutes.ts";
 import { ErrorHandler } from "./utils/errorHandler.ts";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,6 +23,7 @@ app.use(
 app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
