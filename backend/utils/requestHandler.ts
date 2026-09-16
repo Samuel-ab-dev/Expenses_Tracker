@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
 import type { RequestHandler } from "express";
 import { RouteError } from "./routeError.ts";
+import User from "../models/User.ts";
 
-export const authenticate: RequestHandler = (req, _res, next) => {
+export const authenticate: RequestHandler = async (req, _res, next) => {
   const authorization = req.headers.authorization;
 
   if (!authorization?.startsWith("Bearer ")) {
@@ -34,8 +35,14 @@ export const authenticate: RequestHandler = (req, _res, next) => {
       throw new RouteError(401, "Invalid token");
     }
 
+    const user = await User.findById(subject).select("_id locale");
+    if (!user) {
+      throw new RouteError(401, "User not found");
+    }
+
     req.user = {
       id: subject,
+      locale: user.locale,
     };
 
     next();

@@ -18,12 +18,12 @@ router.get(
   validateBody(expenseValidation),
   getAllExpense,
 );
-router.get("/downloadExcel", authenticate, deleteExpense);
-router.delete(
-  "/:id",
+router.get(
+  "/downloadExcel",
   authenticate,
   validateBody(expenseValidation),
   downloadExcelExpense,
 );
+router.delete("/:id", authenticate, deleteExpense);
 
 export default router;

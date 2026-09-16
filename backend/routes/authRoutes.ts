@@ -14,13 +14,13 @@ const router = express.Router();
 
 router.post("/register", validateBody(registerSchema), registerUser);
 router.post("/login", validateBody(loginSchema), loginUser);
-router.get("/getUser", authenticate, getUserInfo);
-
 router.post(
   "/upload-file",
   authenticate,
   upload.single("image"),
   processFileImage,
 );
+
+router.get("/getUser", authenticate, getUserInfo);
 
 export default router;
