@@ -6,7 +6,7 @@ import Expense from "../pages/Auth/Expense.tsx";
 import Home from "../pages/dashboard/Home.tsx";
 import Root from "./Root.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
-import Layout from "./components/Layouts/Layout.tsx";
+import DashboardLayout from "./components/Layouts/DashboardLayout.tsx";
 
 export const routes = createBrowserRouter([
   {
@@ -21,24 +21,26 @@ export const routes = createBrowserRouter([
     path: "/signup",
     element: <SignUp />,
   },
+
   {
-    element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-    ),
+    element: <ProtectedRoute />,
     children: [
       {
-        path: "dashboard",
-        element: <Home />,
-      },
-      {
-        path: "income",
-        element: <Income />,
-      },
-      {
-        path: "expense",
-        element: <Expense />,
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "dashboard",
+            element: <Home />,
+          },
+          {
+            path: "income",
+            element: <Income />,
+          },
+          {
+            path: "expense",
+            element: <Expense />,
+          },
+        ],
       },
     ],
   },

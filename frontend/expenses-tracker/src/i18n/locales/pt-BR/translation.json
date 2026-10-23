@@ -1,0 +1,147 @@
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "loading": "Carregando...",
+    "signingUp": "Registrando...",
+    "logout": "Sair",
+    "trackIncome": "Controle Seus Ganhos e Despesas",
+    "seeMore": "Ver mais",
+    "moneySymbol": "R$",
+    "amount": "Quantia",
+    "changeIcon": "Mudar Ícone",
+    "addIcon": "Adicionar ícone",
+    "seeAll": "Ver Tudo",
+    "download": "Baixar",
+    "date": "Data"
+  },
+
+  "navigation": {
+    "dashboard": "Painel",
+    "income": "Rendimento",
+    "expense": "Gasto",
+    "logout": "Sair"
+  },
+
+  "dashboard": {
+    "title": "Painel",
+    "totalIncome": "Rendimento Total",
+    "totalExpense": "Gasto Total",
+    "balance": "Saldo",
+    "totalBalance": "Saldo Total",
+    "financialOverview": "Visão Geral das Finanças",
+    "recentTransactions": "Transações Recentes"
+  },
+
+  "income": {
+    "common": {
+      "last60Income": "Ganhos dos Últimos 60 Dias",
+      "deleteIncome": "Excluir Rendimento",
+      "addIncome": "Adicionar Rendimento",
+      "successIncomeAdd": "Rendimento adicionado!",
+      "incomeDownload": "Baixar Rendimento",
+      "successIncomeDownload": "Rendimento baixado com sucesso!",
+      "deleteMessage": "Tem certeza que deseja excluir este rendimento?",
+      "successIncomeDelete": "Rendimento excluído com sucesso!"
+    },
+    "errors": {
+      "incomeDeleteSelection": "Nenhum rendimento selecionado para exclusão",
+      "incomeNotAdd": "Falha ao adicionar rendimento",
+      "incomeDeleteError": "Falha ao excluir rendimento",
+      "incomeNotFound": "Nenhum rendimento encontrado",
+      "sourceAmountReq": "Valor do rendimento é obrigátorio",
+      "amountGtZero": "O valor deve ser maior que zero",
+      "dateReq": "Data é obrigatória"
+    },
+    "incomeProps": {
+      "incomeSource": "Fonte do Rendimento",
+      "incomeOverview": "Visão Geral dos Rendimentos",
+      "incomeParagraph": "Acompanhe detalhes do seu rendimento e analise seus lucros",
+      "incomeExamples": "Freelance, salário, etc..."
+    }
+  },
+
+  "expense": {
+    "common": {
+      "last30Expense": "Despesas dos Últimos 30 Dias",
+      "deleteExpense": "Excluir Despesa",
+      "addExpense": "Adicionar Despesa",
+      "successExpenseAdd": "Despesa adicionada!",
+      "expenseDownload": "Baixar Despesa",
+      "successExpenseDownload": "Despesa baixada com sucesso!",
+      "deleteMessage": "Tem certeza que deseja excluir esta despesa?",
+      "successExpenseDelete": "Despesa excluída com sucesso!"
+    },
+    "errors": {
+      "expenseDeleteSelection": "Nenhuma despesa selecionada para exclusão",
+      "expenseNotAdd": "Falha ao adicionar despesa",
+      "expenseDeleteError": "Falha ao excluir despesa",
+      "expenseNotFound": "Nenhum despesa encontrada",
+      "categoryAmountReq": "Valor da despesa é obrigátorio",
+      "amountGtZero": "O valor deve ser maior que zero",
+      "dateReq": "Data é obrigatória"
+    },
+    "expenseProps": {
+      "expenseCategory": "Tipo de Despesa",
+      "expenseOverview": "Visão Geral das Despesas",
+      "expenseParagraph": "Acompanhe seus gastos gerais e controle seu dinheiro",
+      "expenseExamples": "Comida, hospital, etc..."
+    }
+  },
+
+  "auth": {
+    "errors": {
+      "requiredFields": "Todos os campos são obrigatórios",
+      "emailRegistered": "Email já cadastrado",
+      "invalidCredentials": "Credenciais inválidas",
+      "userNotFound": "Usuário não encontrado",
+      "noFileUploaded": "Nenhum arquivo enviado",
+      "failBalance": "Erro ao buscar saldo. Tente novamente.",
+      "uploadFail": "Falha ao enviar image: "
+    },
+    "login": {
+      "title": "Bem-vindo de volta!",
+      "subtitle": "Insira seus dados para entrar",
+      "email": "Email",
+      "emailPlaceholder": "email@email.com",
+      "password": "Senha",
+      "passwordPlaceholder": "Insira sua senha",
+      "submit": "Entrar",
+      "noAccount": "Não possui uma conta?",
+      "signUp": "Registre-se",
+      "serverError": "Algo deu errado. Por favor, tente novamente."
+    },
+    "signUp": {
+      "title": "Crie uma conta!",
+      "subtitle": "Junte-se a nós preenchendo o formulário abaixo.",
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "Jõao Silva",
+      "email": "Seu Email",
+      "emailPlaceholder": "email@email.com",
+      "password": "Senha",
+      "passwordPlaceholder": "Crie sua senha",
+      "confirmPassword": "Confirmar Senha",
+      "confirmPasswordPlaceholder": "Confirme sua senha",
+      "signUp": "Registrar!",
+      "haveAccount": "Já possui uma conta?",
+      "login": "Login"
+    },
+    "validation": {
+      "nameMin": "Nome deve ter pelo menos 2 caracteres",
+      "nameMax": "Nome não deve exceder 128 caracteres",
+      "emailRequired": "Email é obrigatório",
+      "emailInvalid": "Endereço de email inválido",
+      "passwordRequired": "Por favor escreva sua senha",
+      "passwordMin": "A senha deve ter pelo menos 8 caracteres",
+      "passwordMax": "A senha não deve exceder 128 caracteres",
+      "passwordLowercase": "A senha deve conter ao menos uma letra minúscula",
+      "passwordUppercase": "A senha deve conter ao menos uma letra maiúscula",
+      "passwordDigit": "A senha deve conter ao menos uma letra um digíto (0-9)",
+      "passwordSpecial": "A senha deve conter ao menos um símbolo especial",
+      "passwordWhitespace": "A senha não deve conter espaços",
+      "passwordNotMatch": "As senhas inseridas não coincidem"
+    }
+  }
+}

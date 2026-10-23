@@ -1,0 +1,147 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "signingUp": "Signing up...",
+    "logout": "Logout",
+    "trackIncome": "Track Your Income & Expenses",
+    "seeMore": "See more",
+    "moneySymbol": "$",
+    "amount": "Amount",
+    "changeIcon": "Change Icon",
+    "addIcon": "Add Icon",
+    "seeAll": "See All",
+    "download": "Download",
+    "date": "Date"
+  },
+
+  "navigation": {
+    "dashboard": "Dashboard",
+    "income": "Income",
+    "expense": "Expenses",
+    "logout": "Logout"
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "totalIncome": "Total Income",
+    "totalExpense": "Total Expenses",
+    "balance": "Balance",
+    "totalBalance": "Total Balance",
+    "financialOverview": "Financial Overview",
+    "recentTransactions": "Recent Transactions"
+  },
+
+  "income": {
+    "common": {
+      "last60Income": "Last 60 Days Income",
+      "deleteIncome": "Delete Income",
+      "addIncome": "Add Income",
+      "successIncomeAdd": "Income added successfully!",
+      "incomeDownload": "Download Income",
+      "successIncomeDownload": "Income downloaded successfully!",
+      "deleteMessage": "Are you sure you want to delete this income's details?",
+      "successIncomeDelete": "Income successfully deleted!"
+    },
+    "errors": {
+      "incomeDeleteSelection": "No income selected for deletion",
+      "incomeNotAdd": "Fail to add income",
+      "incomeDeleteError": "Fail to delete income",
+      "incomeNotFound": "Income not found",
+      "sourceAmountReq": "Source amount is required",
+      "amountGtZero": "Amount must be greater than zero",
+      "dateReq": "Income date is required"
+    },
+    "incomeProps": {
+      "incomeSource": "Income Sources",
+      "incomeOverview": "Income Overview",
+      "incomeParagraph": "Track your earnings over time and analyze your income trend",
+      "incomeExamples": "Freelance, salary, etc..."
+    }
+  },
+
+  "expense": {
+    "common": {
+      "last30Expense": "Last 30 Days Expense",
+      "deleteExpense": "Delete Expense",
+      "addExpense": "Add Expense",
+      "successExpenseAdd": "Expense added successfully!",
+      "expenseDownload": "Download Expense",
+      "successExpenseDownload": "Expense downloaded successfully!",
+      "deleteMessage": "Are you sure you want to delete this expense's details?",
+      "sucessExpenseDelete": "Expense successfully deleted!"
+    },
+    "errors": {
+      "expenseDeleteSelection": "No expense selected for deletion",
+      "expenseNotAdd": "Fail to add expense",
+      "expenseDeleteError": "Fail to delete expense",
+      "expenseNotFound": "Expense not found",
+      "categoryAmountReq": "Category amount is required",
+      "amountGtZero": "Amount must be greater than zero",
+      "dateReq": "Expense date is required"
+    },
+    "expenseProps": {
+      "expenseCategory": "Expense Category",
+      "expenseOverview": "Expense Overview",
+      "expenseParagraph": "track your expense overtime and control your money",
+      "expenseExamples": "Food, hospital, etc..."
+    }
+  },
+
+  "auth": {
+    "errors": {
+      "requiredFields": "All fields are required",
+      "emailRegistered": "Email is already registered",
+      "invalidCredentials": "Invalid credentials",
+      "userNotFound": "User not found",
+      "noFileUploaded": "No file uploaded",
+      "failBalance": "Error loading dashboard. Please, try again later.",
+      "uploadFail": "Error uploading image: "
+    },
+    "login": {
+      "title": "Welcome back!",
+      "subtitle": "Enter details to log in",
+      "email": "Email address",
+      "emailPlaceholder": "email@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "serverError": "Something went wrong. Please, try again."
+    },
+    "signUp": {
+      "title": "Create an Account!",
+      "subtitle": "Join us today by entering your details below.",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "email@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "Create your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Please confirm your password",
+      "signUp": "Sign up!",
+      "haveAccount": "Already have an account?",
+      "login": "Login"
+    },
+    "validation": {
+      "nameMin": "Name must be at least 2 characters long",
+      "nameMax": "Name can't be longer than 128 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "passwordRequired": "Please enter your password",
+      "passwordMin": "Password must be at least 8 characters long",
+      "passwordMax": "Password can't be longer than 128 characters",
+      "passwordLowercase": "Password must contain at least one lowercase character",
+      "passwordUppercase": "Password must contain at least one uppercase character",
+      "passwordDigit": "Password must contain at least one digit (0-9)",
+      "passwordSpecial": "Password must contain at least one special character",
+      "passwordWhitespace": "Password cannot contain whitespaces",
+      "passwordNotMatch": "Passwords do not match"
+    }
+  }
+}

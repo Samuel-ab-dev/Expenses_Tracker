@@ -1,57 +1,32 @@
 import { useState } from "react";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../src/components/Layouts/AuthLayout";
 import { useForm } from "react-hook-form";
 import Input from "../../src/components/Input";
 import ProfilePictureSelector from "../../src/components/ProfilePictureSelector";
-
-const passwordSchema = z
-  .string()
-  .trim()
-  .min(8, { error: "Password must be at least 8 characters long" })
-  .max(128, { error: "Password can't be longer than 128 characters" })
-  .regex(/[a-z]/, {
-    error: "Password must contain at least one lowercase character",
-  })
-  .regex(/[A-Z]/, {
-    error: "Password must contain at least one uppercase character",
-  })
-  .regex(/[0-9]/, {
-    error: "Password must contain at least one digit (0-9)",
-  })
-  .regex(/[^a-zA-Z0-9]/, {
-    error: "Password must contain at least one special character",
-  });
-
-const signUpSchema = z
-  .object({
-    fullname: z
-      .string()
-      .min(2, { error: "Name must be at least 2 characters long" })
-      .max(128, { error: "Name can't be longer than 128 characters" }),
-
-    email: z
-      .string()
-      .trim()
-      .min(1, { error: "Email is required" })
-      .pipe(z.email({ error: "Invalid email address" })),
-
-    password: passwordSchema,
-    confirmPassword: z.string().trim(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    error: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
-
-type SignUpFormData = z.infer<typeof signUpSchema>;
+import api from "../../utils/axiosInstances";
+import { API_PATHS } from "../../utils/apiPaths";
+import { useUser } from "../../hooks/useUser";
+import uploadImg from "../../utils/uploadImage.tsx";
+import { useTranslation } from "react-i18next";
+import {
+  createSignUpSchema,
+  type SignUpFormData,
+} from "../../utils/schemas/signUpSchema.ts";
+import { authErrorTranslations } from "../../src/i18n/locales/errors/errorTranslations.ts";
+import { getApiTranslatedErrors } from "../../src/i18n/locales/errors/getTranslatedErrors.ts";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
+  const [serverError, setServerError] = useState<string | null>("");
   const [profilePic, setProfilePic] = useState<File | null>(null);
+  const { t } = useTranslation();
+
+  const { updateUser } = useUser();
+
+  const signUpSchema = createSignUpSchema(t);
 
   const {
     register,
@@ -62,22 +37,48 @@ const SignUp = () => {
   });
 
   const handleSignUp = async (data: SignUpFormData) => {
+    setServerError("");
+
     try {
-      console.log(data);
-      navigate("/login");
+      const response = await api.post(API_PATHS.AUTH.REGISTER, {
+        fullName: data.fullname,
+        email: data.email,
+        password: data.password,
+      });
+
+      const { token, user } = response.data;
+
+      if (!token || !user) {
+        throw new Error("Invalid registration response");
+      }
+
+      localStorage.setItem("token", token);
+
+      updateUser(user);
+
+      if (profilePic) {
+        const imgUploadRes = await uploadImg(profilePic);
+        if (imgUploadRes.user) {
+          updateUser(imgUploadRes.user);
+        }
+      }
+
+      navigate("/dashboard", {
+        replace: true,
+      });
     } catch (error) {
-      console.error(error);
+      setServerError(getApiTranslatedErrors(error, t, authErrorTranslations));
     }
   };
 
   return (
     <AuthLayout>
       <section className="lg:w-full h-auto md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-gray-950">
-          Create an Account!
+        <h3 className="text-xl font-semibold text-gray-950 ">
+          {t("auth.signUp.title")}
         </h3>
         <p className="text-xs text-slate-700 mt-1.25 mb-6">
-          Join us today by entering your details below.
+          {t("auth.signUp.subtitle")}
         </p>
 
         <form onSubmit={handleSubmit(handleSignUp)}>
@@ -86,15 +87,15 @@ const SignUp = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               {...register("fullname")}
-              label="Full Name"
-              placeholder="John Doe"
+              label={t("auth.signUp.fullName")}
+              placeholder={t("auth.signUp.fullNamePlaceholder")}
               type="text"
               error={errors.fullname?.message}
             />
             <Input
               {...register("email")}
-              label="Email adress"
-              placeholder="email@email.com"
+              label={t("auth.signUp.email")}
+              placeholder={t("auth.signUp.emailPlaceholder")}
               type="email"
               error={errors.email?.message}
             />
@@ -102,20 +103,26 @@ const SignUp = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               {...register("password")}
-              label="Password"
-              placeholder="Create your password"
+              label={t("auth.signUp.password")}
+              placeholder={t("auth.signUp.passwordPlaceholder")}
               type="password"
               error={errors.password?.message}
             />
             <Input
               {...register("confirmPassword")}
-              label="Confirm Password"
-              placeholder="Please confirm your password"
+              label={t("auth.signUp.confirmPassword")}
+              placeholder={t("auth.signUp.confirmPasswordPlaceholder")}
               type="password"
               showPasswordToggle={false}
               error={errors.confirmPassword?.message}
             />
           </div>
+
+          {serverError && (
+            <p className="error" role={"alert"}>
+              {serverError}
+            </p>
+          )}
 
           <div className="col-span-2">
             <button
@@ -123,15 +130,15 @@ const SignUp = () => {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Signing up..." : "Sign Up!"}
+              {isSubmitting ? t("common.signingUp") : t("auth.signUp.signUp")}
             </button>
             <p className="text-sm text-gray-950 mt-3.5 md:mt-3">
-              Already have an account?{" "}
+              {t("auth.signUp.haveAccount")}{" "}
               <Link
                 className="text-primary hover:text-purple-600 underline-animation"
                 to="/login"
               >
-                Login
+                {t("auth.signUp.login")}{" "}
               </Link>
             </p>
           </div>

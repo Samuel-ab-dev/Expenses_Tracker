@@ -2,12 +2,15 @@ import React from "react";
 import CARD from "../../../assets/images/Project Image Login.png";
 import StatsInfoCard from "../../../assets/Card/StatsInfoCard.tsx";
 import { LuTrendingUpDown } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 type AuthLayoutProps = {
   children: React.ReactNode;
 };
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex">
       <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
@@ -23,7 +26,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
         <div className="grid grid-cols-1 z-30 relative">
           <StatsInfoCard
             icon={LuTrendingUpDown}
-            label="Track Your Income & Expenses"
+            label={t("common.trackIncome")}
             value="200,000"
             color="bg-primary"
           />

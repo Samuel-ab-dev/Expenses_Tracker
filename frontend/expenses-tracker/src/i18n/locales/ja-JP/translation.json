@@ -1,0 +1,147 @@
+{
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "loading": "読み込み中・・・",
+    "signingUp": "アカウント作成中・・・",
+    "logout": "ログアウト",
+    "trackIncome": "収入と経費を管理する",
+    "seeMore": "もっとを見る",
+    "moneySymbol": "¥",
+    "amount": "金額",
+    "changeIcon": "アイコンを変化",
+    "addIcon": "アイコンを追加",
+    "seeAll": "詳細を見る",
+    "download": "ダウンロードする",
+    "date": "日付"
+  },
+
+  "navigation": {
+    "dashboard": "ダッシュボード",
+    "income": "収入",
+    "expense": "経費",
+    "logout": "ログアウト"
+  },
+
+  "dashboard": {
+    "title": "ダッシュボード",
+    "totalIncome": "総収入",
+    "totalExpense": "総支出",
+    "balance": "口座残高",
+    "totalBalance": "合計残高",
+    "financialOverview": "金融の概観",
+    "recentTransactions": "最近の取引"
+  },
+
+  "income": {
+    "common": {
+      "last60Income": "過去６０日間の収入",
+      "deleteIncome": "収入を削除",
+      "addIncome": "収入を登録",
+      "successIncomeAdd": "収入の登録が完了しました！",
+      "incomeDownload": "収入をダウンロード",
+      "successIncomeDownload": "収入のダウンロードが完了しました！",
+      "deleteMessage": "この収入の詳細を削除しますか?",
+      "successIncomeDelete": "収入の削除が完了しました！"
+    },
+    "errors": {
+      "incomeDeleteSelection": "削除する収入が選択されていません",
+      "incomeNotAdd": "収入の登録が失敗しました",
+      "incomeDeleteError": "収入の削除が失敗しました",
+      "incomeNotFound": "収入がありません",
+      "sourceAmountReq": "収入源の金額は必須です",
+      "amountGtZero": "ゼロより大きい金額を指定してください",
+      "dateReq": "収入の日付は必須です"
+    },
+    "incomeProps": {
+      "incomeSource": "収入源",
+      "incomeOverview": "収入の概観",
+      "incomeParagraph": "収益を継続的に記録し、収入の推移を分析しましょう",
+      "incomeExamples": "フリーランス, 給料, など・・・"
+    }
+  },
+
+  "expense": {
+    "common": {
+      "last30Expense": "過去３０日間の経費",
+      "deleteExpense": "経費を削除",
+      "addExpense": "経費を登録",
+      "successExpenseAdd": "経費の登録が完了しました！",
+      "expenseDownload": "経費をダウンロード",
+      "successExpenseDownload": "経費のダウンロードが完了しました！",
+      "deleteMessage": "この経費の詳細を削除しますか",
+      "successExpenseDelete": "経費の削除が完了しました！"
+    },
+    "errors": {
+      "expenseDeleteSelection": "削除する経費が選択されていません",
+      "expenseNotAdd": "経費の登録が失敗しました",
+      "expenseDeleteError": "経費の削除が失敗しました",
+      "expenseNotFound": "経費がありません",
+      "categoryAmountReq": "経費カテゴリーの金額は必須です",
+      "amountGtZero": "ゼロより大きい金額を指定してください",
+      "dateReq": "経費の日付は必須です"
+    },
+    "expenseProps": {
+      "expenseCategory": "経費のカテゴリー",
+      "expenseOverview": "経費の概観",
+      "expenseParagraph": "経費と支出を記録し、お金を節約します",
+      "expenseExamples": "食事, 病院, など・・・"
+    }
+  },
+
+  "auth": {
+    "errors": {
+      "requiredFields": "すべての項目は必須です",
+      "emailRegistered": "メールアドレスはすでに登録されています",
+      "invalidCredentials": "無効な資格情報",
+      "userNotFound": "ユーザーが見つかりません",
+      "noFileUploaded": "ファイルがありません",
+      "failBalance": "合計残高データが見つかりません。もう一度お試しください。",
+      "uploadFail": "ファイルのアップロードが失敗しました: "
+    },
+    "login": {
+      "title": "おかえりなさい！",
+      "subtitle": "ログイン情報を入力してください",
+      "email": "メールアドレス",
+      "emailPlaceholder": "email@email.com",
+      "password": "パスワード",
+      "passwordPlaceholder": "パスワードを入力してください",
+      "submit": "ログイン",
+      "noAccount": "アカウントをお持ちではありませんか？",
+      "signUp": "アカウントを作成",
+      "serverError": "問題が発生しました。もう一度お試しください。"
+    },
+    "signUp": {
+      "title": "アカウントを作成!",
+      "subtitle": "以下に情報を入力してご参加ください",
+      "fullName": "氏名",
+      "fullNamePlaceholder": "山田太郎",
+      "email": "メールアドレス",
+      "emailPlaceholder": "email@email.com",
+      "password": "パスワード",
+      "passwordPlaceholder": "新しいパスワードを入力してください",
+      "confirmPassword": "パスワードを確認",
+      "confirmPasswordPlaceholder": "パスワードを確認してください",
+      "signUp": "アカウントを作成！",
+      "haveAccount": "アカウントをお持ちですか?",
+      "login": "ログイン"
+    },
+    "validation": {
+      "nameMin": "氏名は２文字以上が必要です",
+      "nameMax": "氏名は１２８文字以内で入力してください",
+      "emailRequired": "メールアドレスは必須です",
+      "emailInvalid": "メールアドレスの形式に不備があります",
+      "passwordRequired": "パスワードを入力してください",
+      "passwordMin": "パスワードは８文字以上が必要です",
+      "passwordMax": "パスワードは１２８文字以内で入力してください",
+      "passwordLowercase": "パスワードには小文字を１文字以上が必要です",
+      "passwordUppercase": "パスワードには大文字を１文字以上が必要です",
+      "passwordDigit": "パスワードには数字（０－９）を１文字以上が必要です",
+      "passwordSpecial": "パスワードには特集文字を１文字以上が必要です",
+      "passwordWhitespace": "パスワードにスペースを含めることはできません",
+      "passwordNotMatch": "入力したパスワードが一致しません"
+    }
+  }
+}

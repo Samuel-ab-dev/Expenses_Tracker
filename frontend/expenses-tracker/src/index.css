@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-display: "Poppins", "sans-serif";
   --breakpoint-3xl: 1920px;
@@ -67,4 +69,20 @@
 
 .btn-primary {
   @apply w-full text-sm font-medium text-violet-50 bg-linear-to-b from-purple-600 to-violet-600 shadow-lg shadow-purple-600/5 p-2.5 rounded-md md:my-1 my-0.5 hover:bg-linear-to-b hover:from-violet-700 hover:to-purple-800 hover:text-purple-50 transform transition duration-300 cursor-pointer;
+}
+
+.card {
+  @apply bg-slate-50 p-6 rounded-2xl shadow-md shadow-gray-200 border border-gray-200/50;
+}
+
+.card-btn {
+  @apply flex items-center gap-3 text-[12px] font-medium text-gray-700 bg-slate-50 px-4 py-1.5 rounded-lg border border-gray-300/50 cursor-pointer hover:text-violet-100 hover:bg-linear-to-r hover:from-purple-500 hover:to-violet-600 transform transition duration-300;
+}
+
+.add-btn {
+  @apply flex items-center gap-1.5 text-xs md:text-sm font-medium text-purple-600 whitespace-nowrap bg-purple-50 border border-purple-100 rounded-lg py-2 px-4 cursor-pointer hover:bg-linear-to-b hover:from-purple-500 hover:to-violet-600 hover:text-purple-50 transform transition duration-300;
+}
+
+.add-btn-fill {
+  @apply cursor-pointer bg-linear-to-b  whitespace-nowrap from-purple-500 to-violet-600 text-purple-50 hover:from-purple-600 hover:to-violet-700 transform transition duration-300;
 }
