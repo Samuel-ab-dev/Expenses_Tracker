@@ -1,5 +1,5 @@
-import type { RequestHandler } from "express";
 import { z } from "zod";
+import type { RequestHandler } from "express";
 
 export const validateBody = <T extends z.ZodType>(
   schema: T,

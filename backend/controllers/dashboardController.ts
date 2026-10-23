@@ -1,8 +1,8 @@
 import Income from "../models/Income.ts";
 import Expense from "../models/Expenses.ts";
-import type { Request, Response } from "express";
 import { Types } from "mongoose";
 import { RouteError } from "../utils/routeError.ts";
+import type { Request, Response } from "express";
 
 export const getDashboardData = async (req: Request, res: Response) => {
   const userId = req.user.id;
@@ -99,7 +99,7 @@ export const getDashboardData = async (req: Request, res: Response) => {
     0,
   );
 
-  const lastTransactions = [
+  const recentTransactions = [
     ...lastIncomeTransactions.map((transaction) => ({
       ...transaction.toObject(),
       type: "income" as const,
@@ -119,6 +119,8 @@ export const getDashboardData = async (req: Request, res: Response) => {
     balance,
     incomeLast60Days,
     expenseLast30Days,
-    lastTransactions,
+    expenseLast30DaysTransactions: last30DaysExpenseTransactions,
+    incomeLast60DaysTransactions: last60DaysIncomeTransactions,
+    recentTransactions,
   });
 };

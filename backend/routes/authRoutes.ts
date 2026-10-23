@@ -5,20 +5,25 @@ import {
   registerUser,
   loginUser,
   getUserInfo,
+  uploadProfileImage,
 } from "../controllers/authController.ts";
 import { authenticate } from "../utils/requestHandler.ts";
 import { upload } from "../middlewares/uploadMiddleware.ts";
-import { processFileImage } from "../utils/processFileImage.ts";
 
 const router = express.Router();
 
-router.post("/register", validateBody(registerSchema), registerUser);
+router.post(
+  "/register",
+  upload.single("image"),
+  validateBody(registerSchema),
+  registerUser,
+);
 router.post("/login", validateBody(loginSchema), loginUser);
 router.post(
   "/upload-file",
   authenticate,
   upload.single("image"),
-  processFileImage,
+  uploadProfileImage,
 );
 
 router.get("/getUser", authenticate, getUserInfo);

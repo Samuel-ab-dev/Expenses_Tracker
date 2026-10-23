@@ -1,5 +1,5 @@
-import mongoose, { type Date, type Model } from "mongoose";
 import { verifyPassword } from "../services/passwordServices.ts";
+import mongoose, { type Date, type Model } from "mongoose";
 
 interface IUser {
   fullName: string;
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>(
     profileImageUrl: { type: String, default: null },
     locale: {
       type: String,
-      enum: ["en-US", "pt-BR"],
+      enum: ["en-US", "pt-BR", "ja-JP"],
       default: "en-US",
       required: true,
     },

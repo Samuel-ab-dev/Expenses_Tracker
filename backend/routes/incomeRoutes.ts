@@ -12,13 +12,8 @@ import { incomeValidation } from "../schemas/incomeSchema.ts";
 const router = express.Router();
 
 router.post("/add", authenticate, validateBody(incomeValidation), addIncome);
-router.get("/get", authenticate, validateBody(incomeValidation), getAllIncome);
+router.get("/get", authenticate, getAllIncome);
 router.get("/downloadExcel", authenticate, downloadExcelIncome);
-router.delete(
-  "/:id",
-  authenticate,
-  validateBody(incomeValidation),
-  deleteIncome,
-);
+router.delete("/:id", authenticate, deleteIncome);
 
 export default router;

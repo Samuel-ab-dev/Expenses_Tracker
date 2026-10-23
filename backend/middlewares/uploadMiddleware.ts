@@ -1,6 +1,6 @@
+import path from "node:path";
 import type { Request } from "express";
 import multer, { type FileFilterCallback } from "multer";
-import path from "node:path";
 
 const storage = multer.memoryStorage();
 
@@ -13,10 +13,10 @@ const fileFilter = (
     "image/jpeg",
     "image/png",
     "image/svg+xml",
-    "image/wepb",
+    "image/webp",
   ];
 
-  const allowedExtensions = [".jpeg", ".jpg", ".png", ".svg", ".wepb"];
+  const allowedExtensions = [".jpeg", ".jpg", ".png", ".svg", ".webp"];
 
   const extension = path.extname(file.originalname).toLowerCase();
 

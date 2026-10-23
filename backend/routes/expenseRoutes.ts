@@ -12,18 +12,8 @@ import { expenseValidation } from "../schemas/expenseSchema.ts";
 const router = express.Router();
 
 router.post("/add", authenticate, validateBody(expenseValidation), addExpense);
-router.get(
-  "/get",
-  authenticate,
-  validateBody(expenseValidation),
-  getAllExpense,
-);
-router.get(
-  "/downloadExcel",
-  authenticate,
-  validateBody(expenseValidation),
-  downloadExcelExpense,
-);
+router.get("/get", authenticate, getAllExpense);
+router.get("/downloadExcel", authenticate, downloadExcelExpense);
 router.delete("/:id", authenticate, deleteExpense);
 
 export default router;

@@ -5,8 +5,8 @@ import authRoutes from "./routes/authRoutes.ts";
 import incomeRoutes from "./routes/incomeRoutes.ts";
 import expenseRoutes from "./routes/expenseRoutes.ts";
 import dashboardRoutes from "./routes/dashboardRoutes.ts";
-import { ErrorHandler } from "./utils/errorHandler.ts";
 import path from "node:path";
+import { ErrorHandler } from "./utils/errorHandler.ts";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);

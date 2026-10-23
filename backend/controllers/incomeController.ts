@@ -1,8 +1,8 @@
-import type { Request, Response } from "express";
 import Income from "../models/Income.ts";
 import ExcelJS from "@ayocore/exceljs";
 import { RouteError } from "../utils/routeError.ts";
 import { excelFormats } from "../utils/locale.ts";
+import type { Request, Response } from "express";
 
 const IncomeData = (income: InstanceType<typeof Income>) => {
   return {
@@ -26,7 +26,7 @@ export const addIncome = async (req: Request, res: Response) => {
     date,
   });
   res.status(201).json({
-    message: `Income Successfully saved!`,
+    message: `INCOME_SAVED`,
     income: IncomeData(newIncome),
   });
 };
@@ -50,10 +50,10 @@ export const deleteIncome = async (req: Request, res: Response) => {
   });
 
   if (!deletedIncome) {
-    throw new RouteError(404, "Income data not found");
+    throw new RouteError(404, "Income data not found", "INCOME_NOT_FOUND");
   }
 
-  res.json({ message: "Income successfully deleted!" });
+  res.json({ message: "INCOME_DELETED" });
 };
 
 export const downloadExcelIncome = async (req: Request, res: Response) => {

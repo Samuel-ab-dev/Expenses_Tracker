@@ -1,7 +1,7 @@
 type ExportLocale = "en-US" | "pt-BR" | "ja-JP";
 
 interface ExcelFormat {
-  headers: { source: string; amount: string; date: string };
+  headers: { source: string; category: string; amount: string; date: string };
   currency: string;
   date: string;
 }
@@ -10,7 +10,7 @@ export const excelFormats: Record<ExportLocale, ExcelFormat> = {
   "en-US": {
     headers: {
       source: "Source",
-
+      category: "Category",
       amount: "Amount",
       date: "Date",
     },
@@ -21,6 +21,7 @@ export const excelFormats: Record<ExportLocale, ExcelFormat> = {
   "pt-BR": {
     headers: {
       source: "Fonte",
+      category: "Categoria",
       amount: "Valor",
       date: "Data",
     },
@@ -31,6 +32,7 @@ export const excelFormats: Record<ExportLocale, ExcelFormat> = {
   "ja-JP": {
     headers: {
       source: "資金源",
+      category: "カテゴリー",
       amount: "金額",
       date: "日付",
     },

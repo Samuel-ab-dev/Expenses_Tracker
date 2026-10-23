@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import type { RequestHandler } from "express";
-import { RouteError } from "./routeError.ts";
 import User from "../models/User.ts";
+import { RouteError } from "./routeError.ts";
+import type { RequestHandler } from "express";
 
 export const authenticate: RequestHandler = async (req, _res, next) => {
   const authorization = req.headers.authorization;

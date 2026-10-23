@@ -1,8 +1,8 @@
-import type { Request, Response } from "express";
 import ExcelJS from "@ayocore/exceljs";
+import Expense from "../models/Expenses.ts";
 import { RouteError } from "../utils/routeError.ts";
 import { excelFormats } from "../utils/locale.ts";
-import Expense from "../models/Expenses.ts";
+import type { Request, Response } from "express";
 
 const ExpenseData = (expense: InstanceType<typeof Expense>) => {
   return {
@@ -26,7 +26,7 @@ export const addExpense = async (req: Request, res: Response) => {
     date,
   });
   res.status(201).json({
-    message: `Expense successfully saved!`,
+    message: `EXPENSE_SAVED`,
     expense: ExpenseData(newExpense),
   });
 };
@@ -50,10 +50,10 @@ export const deleteExpense = async (req: Request, res: Response) => {
   });
 
   if (!deletedExpense) {
-    throw new RouteError(404, "Expense data not found");
+    throw new RouteError(404, "Expense data not found", "EXPENSE_NOT_FOUND");
   }
 
-  res.json({ message: "Expense successfully deleted!" });
+  res.json({ message: "EXPENSE_DELETED" });
 };
 
 export const downloadExcelExpense = async (req: Request, res: Response) => {
