@@ -12,17 +12,17 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex">
-      <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-        <h2 className="text-lg font-medium text-gray-950">Expense Tracker</h2>
+    <div className="flex min-h-screen bg-slate-50 text-gray-950 dark:bg-gray-900/95 dark:text-slate-50">
+      <div className="w-screen min-h-screen md:w-[60vw] px-12 pt-8 pb-12">
+        <h2 className="text-lg font-medium text-gray-950 dark:text-slate-50">
+          Expense Tracker
+        </h2>
         {children}
       </div>
-
-      <div className="hidden md:block w-[40vw] h-screen bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center overflow-hidden p-8 relative">
+      <div className="hidden h-screen w-[40vw] overflow-hidden bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center p-8 relative dark:bg-gray-800 md:block">
         <div className="w-48 h-48 rounded-[40px] bg-purple-600 absolute -top-7 -left-5" />
         <div className="w-58 h-56 rounded-[40px] border-20 border-fuchsia-600 absolute top-[30%] -right-10" />
         <div className="w-58 h-56 rounded-[40px] bg-violet-500 absolute -bottom-5 -left-5" />
-
         <div className="grid grid-cols-1 z-30 relative">
           <StatsInfoCard
             icon={LuTrendingUpDown}
@@ -31,7 +31,6 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
             color="bg-primary"
           />
         </div>
-
         <img
           src={CARD}
           className="rounded-2xl lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15 z-10"

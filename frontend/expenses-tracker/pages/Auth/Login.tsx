@@ -58,10 +58,10 @@ const Login = () => {
   return (
     <AuthLayout>
       <section className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-gray-950">
+        <h3 className="text-xl font-semibold text-gray-950 dark:text-slate-50">
           {t("auth.login.title")}
         </h3>
-        <p className="text-xs text-slate-700 mt-1.25 mb-6">
+        <p className="mt-1.25 mb-6 text-xs text-slate-700 dark:text-gray-300">
           {t("auth.login.subtitle")}
         </p>
         <form onSubmit={handleSubmit(handleLogin)}>
@@ -90,10 +90,10 @@ const Login = () => {
             {isSubmitting ? t("common.loading") : t("auth.login.submit")}
           </button>
 
-          <p className="text-sm text-gray-950 mt-3">
+          <p className="mt-3 text-sm text-gray-800 dark:text-gray-200">
             {t("auth.login.noAccount")}{" "}
             <Link
-              className="text-primary hover:text-purple-600 underline-animation"
+              className="text-primary underline-animation transition-colors hover:text-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:text-violet-300 dark:hover:text-violet-200"
               to="/signup"
             >
               {t("auth.login.signUp")}

@@ -12,11 +12,38 @@
 @layer base {
   html {
     font-family: var(--font-display);
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
     background-color: #fcfbfc;
+    color: #111827;
     overflow-x: hidden;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  .dark body {
+    background-color: #111827;
+    color: #f8fafc;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid #875cf5;
+    outline-offset: 3px;
   }
 }
 
@@ -24,7 +51,6 @@
   .underline-animation {
     @apply relative;
   }
-
   .underline-animation::after {
     @apply md:absolute md:content-[''] md:w-0 md:h-0.5 md:bg-purple-600 md:left-0 md:top-4.5;
     animation: underline-out 200ms ease-in forwards;
@@ -32,6 +58,10 @@
 
   .underline-animation:hover::after {
     animation: underline-in 250ms ease-out forwards;
+  }
+
+  .dark .underline-animation::after {
+    @apply md:bg-violet-300;
   }
 
   @keyframes underline-in {
@@ -57,32 +87,113 @@
       left: 100%;
     }
   }
+
+  .input-box {
+    @apply flex w-full justify-between gap-3 rounded border border-slate-200 bg-slate-100 px-4 py-3.5 text-sm text-gray-950 outline-none transition-colors;
+  }
+
+  .dark .input-box {
+    @apply border-gray-600 bg-gray-800 text-slate-50;
+  }
+
+  .input-box:focus-within {
+    @apply border-violet-500 ring-2 ring-violet-500/20;
+  }
+
+  .input-box input,
+  .input-box textarea,
+  .input-box select {
+    @apply min-w-0 bg-transparent text-gray-950 outline-none;
+  }
+
+  .dark .input-box input,
+  .dark .input-box textarea,
+  .dark .input-box select {
+    @apply text-slate-50;
+  }
+
+  .input-box input::placeholder,
+  .input-box textarea::placeholder {
+    @apply text-gray-500;
+  }
+
+  .dark .input-box input::placeholder,
+  .dark .input-box textarea::placeholder {
+    @apply text-gray-400;
+  }
+
+  .error {
+    @apply text-xs text-red-600 md:mt-1;
+  }
+
+  .dark .error {
+    @apply text-red-300;
+  }
+
+  .btn-primary {
+    @apply my-0.5 w-full cursor-pointer rounded-md bg-linear-to-b from-purple-600 to-violet-600 p-2.5 text-sm font-medium text-violet-50 shadow-lg shadow-purple-600/5 transition duration-300 hover:bg-linear-to-b hover:from-violet-700 hover:to-purple-800 hover:text-purple-50 md:my-1;
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .card {
+    @apply rounded-2xl border border-gray-200/70 bg-slate-50 p-6 shadow-md shadow-gray-200/50 transition-colors duration-200;
+  }
+
+  .dark .card {
+    @apply border-gray-700 bg-gray-900 shadow-black/20;
+  }
+
+  .card-btn {
+    @apply flex cursor-pointer items-center gap-3 rounded-lg border border-gray-300/70 bg-slate-50 px-4 py-1.5 text-[12px] font-medium text-gray-700 transition duration-300 hover:bg-linear-to-r hover:from-purple-500 hover:to-violet-600 hover:text-violet-50;
+  }
+
+  .dark .card-btn {
+    @apply border-gray-600 bg-gray-800 text-gray-200 hover:border-violet-500;
+  }
+
+  .add-btn {
+    @apply flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-lg border border-purple-100 bg-purple-50 px-4 py-2 text-xs font-medium text-purple-700 transition duration-300 hover:bg-linear-to-b hover:from-purple-500 hover:to-violet-600 hover:text-violet-50 md:text-sm;
+  }
+
+  .dark .add-btn {
+    @apply border-violet-800 bg-gray-800 text-violet-300 hover:border-violet-500;
+  }
+
+  .add-btn-fill {
+    @apply cursor-pointer whitespace-nowrap bg-linear-to-b from-purple-500 to-violet-600 text-violet-50 transition duration-300 hover:from-purple-600 hover:to-violet-700;
+  }
 }
 
-.input-box {
-  @apply w-full flex justify-between gap-3 text-sm text-gray-950 bg-slate-100 rounded px-4 py-3.5 border border-slate-200 outline-none;
+:root {
+  --chart-grid: #e5e7eb;
+  --chart-axis: #4b5563;
+  --chart-label: #374151;
+  --chart-point-border: #f8fafc;
+  --chart-center-label: #475569;
+  --chart-center-value: #111827;
+  --chart-legend: #111827;
 }
 
-.error {
-  @apply text-red-500 text-xs md:mt-1;
+.dark {
+  --chart-grid: #374151;
+  --chart-axis: #cbd5e1;
+  --chart-label: #e2e8f0;
+  --chart-point-border: #111827;
+  --chart-center-label: #cbd5e1;
+  --chart-center-value: #f8fafc;
+  --chart-legend: #f8fafc;
 }
 
-.btn-primary {
-  @apply w-full text-sm font-medium text-violet-50 bg-linear-to-b from-purple-600 to-violet-600 shadow-lg shadow-purple-600/5 p-2.5 rounded-md md:my-1 my-0.5 hover:bg-linear-to-b hover:from-violet-700 hover:to-purple-800 hover:text-purple-50 transform transition duration-300 cursor-pointer;
-}
-
-.card {
-  @apply bg-slate-50 p-6 rounded-2xl shadow-md shadow-gray-200 border border-gray-200/50;
-}
-
-.card-btn {
-  @apply flex items-center gap-3 text-[12px] font-medium text-gray-700 bg-slate-50 px-4 py-1.5 rounded-lg border border-gray-300/50 cursor-pointer hover:text-violet-100 hover:bg-linear-to-r hover:from-purple-500 hover:to-violet-600 transform transition duration-300;
-}
-
-.add-btn {
-  @apply flex items-center gap-1.5 text-xs md:text-sm font-medium text-purple-600 whitespace-nowrap bg-purple-50 border border-purple-100 rounded-lg py-2 px-4 cursor-pointer hover:bg-linear-to-b hover:from-purple-500 hover:to-violet-600 hover:text-purple-50 transform transition duration-300;
-}
-
-.add-btn-fill {
-  @apply cursor-pointer bg-linear-to-b  whitespace-nowrap from-purple-500 to-violet-600 text-purple-50 hover:from-purple-600 hover:to-violet-700 transform transition duration-300;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

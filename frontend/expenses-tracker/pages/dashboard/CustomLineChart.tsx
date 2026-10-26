@@ -39,13 +39,13 @@ const CustomLineChart = ({ data }: CustomLineChartProps) => {
 
     const item = payload[0].payload as LineData;
     return (
-      <div className="rounded-xl border border-gray-100 bg-violet-50 px-3 py-2 shadow-lg">
-        <p className="text-xs font-semibold text-purple-900 mb-1">
+      <div className="rounded-xl border border-gray-200 bg-slate-50 px-3 py-2 shadow-lg shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20">
+        <p className="mb-1 text-xs font-semibold text-purple-900  dark:text-purple-400">
           {item.label}
         </p>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           {`${t("common.amount")}:`}
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-medium text-gray-950 dark:text-slate-50">
             {t("common.moneySymbol")}
             {item.amount}
           </span>
@@ -68,18 +68,18 @@ const CustomLineChart = ({ data }: CustomLineChartProps) => {
         </defs>
 
         <CartesianGrid
-          stroke="#E5E7EB"
+          stroke="var(--chart-grid)"
           strokeDasharray="3 3"
           vertical={false}
         />
         <XAxis
           dataKey="label"
-          tick={{ fontSize: 12, fill: "#555" }}
+          tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
           tickLine={false}
           axisLine={false}
         />
         <YAxis
-          tick={{ fontSize: 12, fill: "#555" }}
+          tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
           tickLine={false}
           axisLine={false}
         />
@@ -104,13 +104,13 @@ const CustomLineChart = ({ data }: CustomLineChartProps) => {
           dot={{
             r: 3,
             fill: "#875cf5",
-            stroke: "#fff",
+            stroke: "var(--chart-point-border)",
             strokeWidth: 1.5,
           }}
           activeDot={{
             r: 5,
             fill: "#875cf5",
-            stroke: "#fff",
+            stroke: "var(--chart-point-border)",
             strokeWidth: 2,
           }}
         />

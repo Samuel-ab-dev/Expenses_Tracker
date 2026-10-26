@@ -32,13 +32,13 @@ const Sidemenu = ({ onNavigate }: SideMenuProps) => {
   };
 
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-slate-100 border-r border-gray-200/50 p-5 sticky top-15.25 z-30">
+    <div className="sticky top-15.25 z-30 h-[calc(100vh-61px)] w-64 border-r border-gray-200/70 bg-slate-100 p-5 dark:border-gray-700 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7">
         {user?.profileImageUrl ? (
           <img
             src={user?.profileImageUrl || ""}
             alt="User profile image"
-            className="w-20 h-20 bg-slate-300 rounded-full"
+            className="w-20 h-20 rounded-full bg-slate-300 dark:bg-gray-700"
           />
         ) : (
           <CharAvatar
@@ -49,7 +49,7 @@ const Sidemenu = ({ onNavigate }: SideMenuProps) => {
           />
         )}
 
-        <h5 className="text-gray-950 font-medium leading-6">
+        <h5 className="font-medium leading-6 text-gray-950 dark:text-slate-50">
           {user?.fullName || ""}
         </h5>
       </div>
@@ -57,7 +57,11 @@ const Sidemenu = ({ onNavigate }: SideMenuProps) => {
         {SIDE_MENU_DATA.map((item, index) => (
           <button
             key={`menu_${index}`}
-            className={`w-full flex items-center gap-4 text-[15px] ${location.pathname === item.path ? "text-slate-100 bg-primary" : ""} py-3 px-6 rounded-lg mb-3`}
+            className={`w-full flex items-center gap-4 text-[15px] py-3 px-6 rounded-lg mb-3 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 ${
+              location.pathname === item.path
+                ? "bg-primary text-slate-50"
+                : "text-gray-700 hover:bg-gray-200/70 hover:text-gray-950 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-slate-50"
+            }`}
             onClick={() => handleClick(item.path)}
           >
             <item.icon className="text-xl" />

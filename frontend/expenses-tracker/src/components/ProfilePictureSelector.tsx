@@ -51,12 +51,18 @@ const ProfilePictureSelector = ({ image, setImage }: ImageData) => {
         className="hidden"
       />
       {!image ? (
-        <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
+        <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-purple-100 dark:bg-gray-800">
           <LuUser className="text-4xl text-primary" />
 
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center bg-primary hover:bg-violet-700 cursor-pointer text-violet-50 rounded-full absolute -bottom-1 -right-1"
+            className="absolute -bottom-1 -right-1
+              flex h-8 w-8 cursor-pointer items-center justify-center
+              rounded-full bg-primary text-violet-50
+              transition-colors hover:bg-violet-700
+              focus-visible:outline-2 focus-visible:outline-offset-2
+              focus-visible:outline-violet-500
+              dark:hover:bg-violet-400 dark:hover:text-gray-950"
             onClick={onChooseFile}
           >
             <LuUpload />
@@ -71,7 +77,14 @@ const ProfilePictureSelector = ({ image, setImage }: ImageData) => {
           />
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center bg-red-500 hover:bg-red-700 cursor-pointer text-red-50 rounded-full absolute -bottom-1 -right-1"
+            className="absolute -bottom-1 -right-1
+              flex h-8 w-8 cursor-pointer items-center justify-center
+              rounded-full bg-red-600 text-red-50
+              transition-colors hover:bg-red-700
+              focus-visible:outline-2 focus-visible:outline-offset-2
+              focus-visible:outline-red-500
+              dark:bg-red-500 dark:hover:bg-red-400
+              dark:hover:text-gray-950"
             onClick={handleRemoveImage}
           >
             <LuTrash />

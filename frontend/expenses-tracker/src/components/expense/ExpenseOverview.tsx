@@ -31,10 +31,10 @@ const ExpenseOverview = ({
     <section className="card">
       <div className="flex items-center justify-between">
         <div className="">
-          <h5 className="text-lg">
+          <h5 className="text-lg ext-gray-950 dark:text-slate-50">
             {t("expense.expenseProps.expenseOverview")}
           </h5>
-          <p className="text-xs text-gray-400 mt-0.5">
+          <p className="mt-0.5 text-xs text-gray-600 dark:text-gray-400">
             {t("expense.expenseProps.expenseParagraph")}
           </p>
         </div>

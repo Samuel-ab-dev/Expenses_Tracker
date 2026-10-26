@@ -50,13 +50,13 @@ const CustomBarChart = ({ data }: CustomBarChartProps) => {
 
     const item = payload[0].payload as ChartData;
     return (
-      <div className="rounded-xl border border-gray-100 bg-violet-50 px-3 py-2 shadow-lg">
-        <p className="text-xs font-semibold text-purple-900 mb-1">
+      <div className="rounded-xl border border-gray-200 bg-slate-50 px-3 py-2 shadow-lg shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20">
+        <p className="mb-1 text-xs font-semibold text-purple-900  dark:text-purple-400">
           {item.label}
         </p>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           {`${t("common.amount")}:`}
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-medium text-gray-950 dark:text-slate-50">
             {t("common.moneySymbol")}
             {item.amount}
           </span>
@@ -70,20 +70,20 @@ const CustomBarChart = ({ data }: CustomBarChartProps) => {
       <ResponsiveContainer width="100%" height={380}>
         <BarChart data={data} barCategoryGap="15%">
           <CartesianGrid
-            stroke="#e5e7eb"
+            stroke="#d1d5db"
             strokeDasharray="4 4"
             vertical={false}
           />
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 12, fill: "#6b7280" }}
-            axisLine={{ stroke: "#e5e7eb", strokeWidth: 1 }}
+            tick={{ fontSize: 12, fill: "#4b5563" }}
+            axisLine={{ stroke: "#d1d5db", strokeWidth: 1 }}
             tickLine={false}
           />
 
           <YAxis
-            tick={{ fontSize: 12, fill: "#6b7280" }}
-            axisLine={{ stroke: "#e5e7eb", strokeWidth: 1 }}
+            tick={{ fontSize: 12, fill: "#4b5563" }}
+            axisLine={{ stroke: "#d1d5db", strokeWidth: 1 }}
             tickLine={false}
           />
 

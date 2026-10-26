@@ -57,12 +57,12 @@ const TransactionInfoCard = ({
 
   const getAmountStyles = () => {
     return type === "income"
-      ? "bg-emerald-100 text-green-500"
-      : "bg-gray-200 text-gray-500";
+      ? "bg-emerald-100 text-green-700 dark:bg-emerald-950 dark:text-emerald-300"
+      : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200";
   };
 
   return (
-    <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg hover:bg-gray-100/75">
+    <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg transition-colors duration-200 hover:bg-gray-100/75 dark:hover:bg-gray-800/75">
       <div
         className={`w-12 h-12 flex items-center justify-center text-xl ${getAmountStyles()} rounded-full`}
       >
@@ -75,8 +75,10 @@ const TransactionInfoCard = ({
 
       <div className="flex-1 flex items-center justify-between">
         <div>
-          <h4 className="text-sm text-gray-800 font-medium">{title}</h4>
-          <span className="text-xs text-gray-400 mt-1">
+          <h4 className="text-sm font-medium text-gray-800 dark:text-slate-50">
+            {title}
+          </h4>
+          <span className="mt-1 text-xs text-gray-600 dark:text-gray-400">
             {format(date, "dd MMM yyyy")}
           </span>
         </div>
@@ -84,7 +86,7 @@ const TransactionInfoCard = ({
         <div className="flex items-center gap-2">
           {!hideDeleteBtn && (
             <button
-              className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+              className="cursor-pointer text-gray-500 opacity-0 transition-opacity hover:text-red-600 focus-visible:opacity-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 group-hover:opacity-100 dark:text-gray-400 dark:hover:text-red-400"
               onClick={onDelete}
             >
               <LuTrash2 size={18} />

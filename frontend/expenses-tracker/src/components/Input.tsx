@@ -18,7 +18,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="mb-4">
         {label && (
-          <label className="block text-sm font-medium text-gray-950 mb-3">
+          <label className="mb-3 block text-sm font-medium text-gray-950 dark:text-slate-50">
             {label}
           </label>
         )}
@@ -37,12 +37,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               {showPassword ? (
                 <FaRegEye
                   size={22}
-                  className="text-purple-600 cursor-pointer transform transition duration-300 hover:scale-110 "
+                  className="cursor-pointer text-purple-600 transition duration-300 hover:scale-110 dark:text-violet-300"
                 />
               ) : (
                 <FaRegEyeSlash
                   size={22}
-                  className="text-slate-300 cursor-pointer transform transition duration-300 hover:scale-110"
+                  className="cursor-pointer text-gray-500 transition duration-300 hover:scale-110 dark:text-gray-400"
                 />
               )}
             </button>

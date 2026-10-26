@@ -74,10 +74,10 @@ const SignUp = () => {
   return (
     <AuthLayout>
       <section className="lg:w-full h-auto md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-gray-950 ">
+        <h3 className="text-xl font-semibold text-gray-950 dark:text-slate-50">
           {t("auth.signUp.title")}
         </h3>
-        <p className="text-xs text-slate-700 mt-1.25 mb-6">
+        <p className="mt-1.25 mb-6 text-xs text-slate-700 dark:text-gray-300">
           {t("auth.signUp.subtitle")}
         </p>
 
@@ -132,10 +132,10 @@ const SignUp = () => {
             >
               {isSubmitting ? t("common.signingUp") : t("auth.signUp.signUp")}
             </button>
-            <p className="text-sm text-gray-950 mt-3.5 md:mt-3">
+            <p className="mt-3.5 text-sm text-gray-800 dark:text-gray-200 md:mt-3">
               {t("auth.signUp.haveAccount")}{" "}
               <Link
-                className="text-primary hover:text-purple-600 underline-animation"
+                className="text-primary underline-animation transition-colors hover:text-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:text-violet-300 dark:hover:text-violet-200"
                 to="/login"
               >
                 {t("auth.signUp.login")}{" "}

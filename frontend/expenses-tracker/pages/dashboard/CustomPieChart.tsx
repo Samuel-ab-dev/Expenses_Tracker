@@ -51,13 +51,13 @@ const CustomPieChart = ({
     const item = payload[0].payload as PieData;
 
     return (
-      <div className="rounded-xl border border-gray-100 bg-violet-50 px-3 py-2 shadow-lg">
-        <p className="text-xs font-semibold text-purple-900 mb-1">
+      <div className="rounded-xl border border-gray-200 bg-slate-50 px-3 py-2 shadow-lg shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20">
+        <p className="text-xs font-semibold text-purple-900 dark:text-purple-400 mb-1">
           {item.name}
         </p>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           {`${t("common.amount")}:`}
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-medium text-gray-950 dark:text-slate-50">
             {t("common.moneySymbol")}
             {item.value}
           </span>
@@ -90,7 +90,7 @@ const CustomPieChart = ({
               y="50%"
               dy={-25}
               textAnchor="middle"
-              fill="#666"
+              fill="var(--chart-center-label)"
               fontSize="14px"
             >
               {label}
@@ -100,7 +100,7 @@ const CustomPieChart = ({
               y="50%"
               dy={8}
               textAnchor="middle"
-              fill="#333"
+              fill="var(--chart-center-value)"
               fontSize="24px"
               fontWeight={600}
             >

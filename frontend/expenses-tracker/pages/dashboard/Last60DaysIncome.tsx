@@ -24,7 +24,7 @@ const Last60DaysIncome = ({ data }: RecentIncome) => {
   return (
     <section className="card">
       <div className="flex items-center justify-between">
-        <h5 className="text-lg mb-3 md:mb-5">
+        <h5 className="mb-3 text-lg text-gray-950 dark:text-slate-50 md:mb-5">
           {t("income.common.last60Income")}
         </h5>
       </div>

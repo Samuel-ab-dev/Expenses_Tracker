@@ -24,7 +24,9 @@ const FinanceOverview = ({
   return (
     <section className="card">
       <div className="flex items-center justify-between">
-        <h5 className="text-lg">{t("dashboard.financialOverview")}</h5>
+        <h5 className="text-lg text-gray-950 dark:text-slate-50">
+          {t("dashboard.financialOverview")}
+        </h5>
       </div>
 
       <CustomPieChart

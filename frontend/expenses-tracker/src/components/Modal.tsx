@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface ModalData {
   children: ReactNode;
@@ -11,21 +11,28 @@ const Modal = ({ children, isOpen, onClose, title }: ModalData) => {
   if (!isOpen) return null;
 
   return (
-    <dialog className="fixed top-0 right-0 left-0 z-99 flex justify-center items-center w-full h-[calc(100%-0rem)] max-h-full overflow-y-auto overflow-x-hidden bg-black/20 bg-opacity-50">
-      <div className="relative p-4 w-full max-w-2xl max-h-full">
-        {/* modal content */}
-        <div className="relative bg-slate-50 rounded-lg shadow-sm">
-          {/*modal header */}
-          <div className="flex items-center justify-between p-4 md:p-5 border-b border-gray-200 rounded-t ">
-            <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+    <dialog
+      open
+      className="fixed top-0 right-0 left-0 z-99 flex justify-center items-center w-full h-[calc(100%-0rem)] max-h-full overflow-y-auto overflow-x-hidden bg-black/20 bg-opacity-50"
+    >
+      <div className="relative w-full max-w-2xl max-h-full">
+        <div className="relative rounded-lg bg-slate-50 shadow-sm dark:bg-gray-900">
+          <div className="flex items-center justify-between rounded-t border-b border-gray-200 p-4 md:p-5 dark:border-gray-700">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-slate-50">
+              {title}
+            </h3>
 
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-800 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center transform transition 100s cursor-pointer"
+              aria-label="Fechar modal"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-lg
+              text-gray-400 transition-colors duration-200
+              hover:bg-gray-200 hover:text-gray-900
+              dark:hover:bg-gray-700 dark:hover:text-slate-50"
               onClick={onClose}
             >
               <svg
-                className="w-3 h-3"
+                className="h-3 w-3"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -42,7 +49,7 @@ const Modal = ({ children, isOpen, onClose, title }: ModalData) => {
             </button>
           </div>
 
-          <div className="p-4 md:p-5 space-y-4">{children}</div>
+          <div className="space-y-4 p-4 md:p-5">{children}</div>
         </div>
       </div>
     </dialog>

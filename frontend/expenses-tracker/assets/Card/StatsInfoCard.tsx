@@ -14,15 +14,30 @@ const StatsInfoCard = ({
   color,
 }: StatsInfoCardProps) => {
   return (
-    <div className="flex gap-6 bg-violet-50 p-4 rounded-xl shadow-md shadow-purple-400/10 border border-gray-200/50 z-20">
+    <div
+      className="
+        z-20 flex gap-6 rounded-xl
+        border border-gray-200/50
+        bg-violet-50 p-4
+        shadow-md shadow-purple-400/10
+        transition-colors duration-200
+        dark:border-gray-700
+        dark:bg-gray-900
+        dark:shadow-black/20
+      "
+    >
       <div
-        className={`shrink-0 w-14 h-14 flex items-center justify-center ${color} text-violet-50 rounded-full drop-shadow-xl  `}
+        className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-violet-50 drop-shadow-xl ${color ?? "bg-primary"}`}
       >
         <Icon className="text-2xl" />
       </div>
       <div>
-        <h6 className="text-xs text-gray-500 mb-1">{label}</h6>
-        <span className="text-[20px] ">{value}</span>
+        <h6 className="mb-2 text-xs text-gray-600 dark:text-gray-300">
+          {label}
+        </h6>
+        <span className="text-[20px] font-medium text-gray-950 dark:text-slate-50">
+          {value}
+        </span>
       </div>
     </div>
   );
