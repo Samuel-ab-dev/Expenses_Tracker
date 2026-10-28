@@ -42,5 +42,10 @@ export const loginSchema = z.object({
   password: z.string().min(1, { error: "Password is required" }),
 });
 
+export const updateLocaleSchema = z.object({
+  locale: z.enum(["en-US", "pt-BR", "ja-JP"]),
+});
+
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
+export type UpdateLocale = z.infer<typeof updateLocaleSchema>;

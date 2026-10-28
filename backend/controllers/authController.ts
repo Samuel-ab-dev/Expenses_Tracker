@@ -32,6 +32,7 @@ const publicUser = (user: InstanceType<typeof User>) => {
     id: user._id.toString(),
     fullName: user.fullName,
     email: user.email,
+    locale: user.locale,
     profileImageUrl: user.profileImageUrl,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
@@ -175,4 +176,23 @@ export const uploadProfileImage = async (req: Request, res: Response) => {
     }
     throw err;
   }
+};
+
+export const updateUserLocale = async (req: Request, res: Response) => {
+  const { locale } = req.body;
+
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    throw new RouteError(404, "No user found", "NO_USER_FOUND");
+  }
+
+  user.locale = locale;
+
+  await user.save();
+
+  res.status(200).json({
+    message: "LOCALE_UPDATED",
+    user: publicUser(user),
+  });
 };
