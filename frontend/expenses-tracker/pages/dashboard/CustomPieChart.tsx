@@ -35,7 +35,15 @@ const CustomPieChart = ({
   colors,
   showTextAnchor = false,
 }: CustomPieChartProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const locale = i18n.resolvedLanguage ?? i18n.language;
+
+  const formatNumber = (value: number) =>
+    new Intl.NumberFormat(locale, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value);
 
   const chartData = balance.map((entry, index) => ({
     ...entry,
@@ -53,13 +61,21 @@ const CustomPieChart = ({
     return (
       <div className="rounded-xl border border-gray-200 bg-slate-50 px-3 py-2 shadow-lg shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20">
         <p className="text-xs font-semibold text-purple-900 dark:text-purple-400 mb-1">
-          {item.name}
+          {t(
+            item.name === "Total Income"
+              ? "dashboard.totalIncome"
+              : item.name === "Total Balance"
+                ? "dashboard.totalBalance"
+                : item.name === "Total Expense"
+                  ? "dashboard.totalExpense"
+                  : "Total Expense",
+          )}
         </p>
         <p className="text-sm text-gray-700 dark:text-gray-300">
-          {`${t("common.amount")}:`}
+          {t("common.amount")}:{" "}
           <span className="text-sm font-medium text-gray-950 dark:text-slate-50">
             {t("common.moneySymbol")}
-            {item.value}
+            {formatNumber(item.value)}
           </span>
         </p>
       </div>
@@ -104,7 +120,9 @@ const CustomPieChart = ({
               fontSize="24px"
               fontWeight={600}
             >
-              {amount}
+              {typeof amount === "number"
+                ? `${t("common.moneySymbol")} ${formatNumber(amount)}`
+                : amount}
             </text>
           </>
         )}

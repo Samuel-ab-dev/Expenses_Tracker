@@ -10,12 +10,12 @@ import ExpenseOverview from "../../src/components/expense/ExpenseOverview";
 import Modal from "../../src/components/Modal";
 import AddExpenseForm from "../../src/components/expense/AddExpenseForm";
 import ExpenseList from "../../src/components/expense/ExpenseList";
-import exportToExcel from "../../utils/exportToExcel";
-import { expenseExcelConfig } from "../../utils/excelConfigs.ts";
+import exportToExcel from "../../utils/excel/exportToExcel.ts";
+import { getExpenseExcelConfig } from "../../utils/excel/excelConfigs.ts";
 import DeleteAlert from "../../src/assets/DeleteAlert.tsx";
 
 const Expense = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
 
   const [expenseDelete, setExpenseDelete] = useState<{
@@ -120,7 +120,11 @@ const Expense = () => {
 
   const handleDownloadExpenseData = async () => {
     try {
-      await exportToExcel({ data: expenseData, ...expenseExcelConfig });
+      const locale = i18n.resolvedLanguage ?? i18n.language;
+      await exportToExcel({
+        data: expenseData,
+        ...getExpenseExcelConfig(locale),
+      });
       toast.success(t("expense.common.successExpenseDownload"));
     } catch (err: unknown) {
       console.error("Failed to export data: " + err);

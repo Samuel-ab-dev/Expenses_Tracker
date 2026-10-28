@@ -11,11 +11,11 @@ import AddIncomeForm from "../../src/components/income/AddIncomeForm.tsx";
 import { type AddIncomeFormData } from "../../src/components/income/AddIncomeForm.tsx";
 import IncomeList from "../../src/components/income/IncomeList.tsx";
 import DeleteAlert from "../../src/assets/DeleteAlert.tsx";
-import exportToExcel from "../../utils/exportToExcel.ts";
-import { incomeExcelConfig } from "../../utils/excelConfigs.ts";
+import exportToExcel from "../../utils/excel/exportToExcel.ts";
+import { getIncomeExcelConfig } from "../../utils/excel/excelConfigs.ts";
 
 const Income = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
 
   const [incomeDelete, setIncomeDelete] = useState<{
@@ -120,11 +120,17 @@ const Income = () => {
 
   const handleDownloadIncomeData = async () => {
     try {
-      await exportToExcel({ data: incomeData, ...incomeExcelConfig });
+      const locale = i18n.resolvedLanguage ?? i18n.language;
+
+      await exportToExcel({
+        data: incomeData,
+        ...getIncomeExcelConfig(locale),
+      });
+
       toast.success(t("income.common.successIncomeDownload"));
     } catch (err: unknown) {
-      console.error("Failed to export data: " + err);
-      toast("Failed to export data");
+      console.error("Failed to export data:", err);
+      toast.error(t("income.errors.incomeDownloadError"));
     }
   };
 

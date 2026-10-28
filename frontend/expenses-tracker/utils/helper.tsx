@@ -15,14 +15,16 @@ export const getInitials = (userName: string) => {
   return initials.toUpperCase();
 };
 
-export const addThousandsSeparator = (num: number) => {
-  if (num === null || isNaN(num)) return "";
-  const [integerPart, fractionalPart] = num.toString().split(".");
-  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export const addThousandsSeparator = (
+  num: number,
+  locale: string = "en-US",
+) => {
+  if (!Number.isFinite(num)) return "";
 
-  return fractionalPart
-    ? `${formattedInteger}.${fractionalPart}`
-    : `${formattedInteger}`;
+  return new Intl.NumberFormat(locale, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(num);
 };
 
 export const prepareExpenseBarChartData = (data: ExpenseTransaction[]) => {

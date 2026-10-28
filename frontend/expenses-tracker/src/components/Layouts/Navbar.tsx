@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import Sidemenu from "./Sidemenu.tsx";
 import ThemeToggle from "./ThemeToggleLayout.tsx";
+import LanguageSwitcher from "../LanguageSwitcher.tsx";
 
 const Navbar = () => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
@@ -24,6 +25,8 @@ const Navbar = () => {
       <h2 className="text-lg font-medium text-gray-950 dark:text-slate-50">
         Expense Tracker
       </h2>
+
+      <LanguageSwitcher />
       <ThemeToggle />
       {openSideMenu && (
         <aside className="fixed left-0 top-15.25 -ml-4 bg-slate-100 shadow-lg shadow-gray-900/10 dark:bg-gray-900 dark:shadow-black/20">

@@ -32,7 +32,7 @@ const Last60DaysIncome = ({ data }: RecentIncome) => {
       <CustomPieChart
         balance={chartData}
         label={t("dashboard.totalIncome")}
-        amount={`$${totalIncome.toLocaleString()}`}
+        amount={`${t("common.moneySymbol") + totalIncome.toLocaleString()}`}
         colors={COLORS}
         showTextAnchor
       />

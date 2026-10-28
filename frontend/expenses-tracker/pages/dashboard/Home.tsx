@@ -17,7 +17,7 @@ const Home = () => {
   useUserAuth();
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { data: dashboardData, isLoading, isError } = useDashboard();
   if (isLoading) {
@@ -36,21 +36,30 @@ const Home = () => {
             <InfoCard
               icon={IoMdCard}
               label={t("dashboard.totalBalance")}
-              value={addThousandsSeparator(dashboardData?.balance || 0)}
+              value={addThousandsSeparator(
+                dashboardData.balance || 0,
+                i18n.resolvedLanguage || "en-US",
+              )}
               color="bg-primary"
             />
 
             <InfoCard
               icon={LuWalletMinimal}
               label={t("dashboard.totalIncome")}
-              value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
+              value={addThousandsSeparator(
+                dashboardData.totalIncome || 0,
+                i18n.resolvedLanguage || "en-US",
+              )}
               color="bg-emerald-500"
             />
 
             <InfoCard
               icon={LuHandCoins}
               label={t("dashboard.totalExpense")}
-              value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
+              value={addThousandsSeparator(
+                dashboardData.totalExpense || 0,
+                i18n.resolvedLanguage || "en-US",
+              )}
               color="bg-red-600"
             />
           </div>
