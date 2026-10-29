@@ -32,7 +32,7 @@ const FinanceOverview = ({
       <CustomPieChart
         balance={balance}
         label={t("dashboard.totalBalance")}
-        amount={`${t("common.moneySymbol") + totalBalance.toLocaleString()}`}
+        amount={totalBalance}
         colors={COLORS}
         showTextAnchor
       />
